@@ -25,27 +25,29 @@ const App = () => {
 	};
 
 	return (
-		<div>
-			<h2>Poster un message</h2>
-			<form onSubmit={(e) => handleSubmit(e)}>
-				<input
-					type="text"
-					placeholder="Entrez un message"
-					id="inputMessage"
-					ref={inputMessage}
-				/>
-				<input type="submit" value="Envoyer" />
-			</form>
-			<h2>Liste des messages</h2>
+		<div className="container">
 			<div>
-				{messData?.map((mess) => (
-					<Message
-						mess={mess}
-						messData={messData}
-						setMessData={setMessData}
-						key={mess.id}
+				<h2>Poster un message</h2>
+				<form onSubmit={(e) => handleSubmit(e)}>
+					<input
+						type="text"
+						placeholder="Entrez un message"
+						id="inputMessage"
+						ref={inputMessage}
 					/>
-				))}
+					<input type="submit" value="Envoyer" />
+				</form>
+				<h2>Liste des messages</h2>
+				<div>
+					{messData?.map((mess) => (
+						<Message
+							mess={mess}
+							messData={messData}
+							setMessData={setMessData}
+							key={mess.id}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	);
